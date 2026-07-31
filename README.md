@@ -1,6 +1,13 @@
 # Movie Finder
 
-Aplicação Vue para pesquisar filmes usando a API do The Movie Database (TMDB).
+Aplicação web desenvolvida com Vue 3 que utiliza a API do The Movie Database (TMDB) para pesquisar filmes e exibir informações como pôster, avaliação, ano de lançamento e descrição.
+
+## Tecnologias
+
+- Vue 3
+- Vite
+- JavaScript
+- API do The Movie Database (TMDB)
 
 ## Configuração
 
@@ -18,36 +25,17 @@ VITE_TMDB_API_KEY=sua_chave_da_tmdb
 
 O arquivo `.env.local` não deve ser enviado ao GitHub.
 
-## Recommended IDE Setup
+## Executar o projeto
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
+Inicie o servidor de desenvolvimento:
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Depois, abra o endereço exibido no terminal, normalmente `http://localhost:5173`.
+
+## Build de produção
 
 ```sh
 npm run build
