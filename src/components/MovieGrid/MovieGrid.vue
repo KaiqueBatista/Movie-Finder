@@ -1,21 +1,24 @@
+
 <script setup>
-import MovieCard from './MovieCard.vue'
+import MovieCard from '../MovieCard/MovieCard.vue'
 
 defineProps({
   filmes: Array,
   loading: Boolean,
   erro: Boolean,
-  mensagemErro: String
+  mensagemErro: String,
 })
 
 const emit = defineEmits(['selecionar'])
 </script>
 
 <template>
+  <!-- mensagem de erro da busca -->
   <div v-if="erro" class="erroDeBusca">
     {{ mensagemErro }}
   </div>
 
+  <!-- grade de filmes -->
   <div v-if="!loading" class="filmes">
     <MovieCard
       v-for="filme in filmes"

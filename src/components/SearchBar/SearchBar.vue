@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 defineProps({
-  loading: Boolean
+  loading: Boolean,
 })
 
 const emit = defineEmits(['buscar'])
@@ -10,13 +10,15 @@ const busca = ref('')
 const mensagemErro = ref('')
 
 function buscar() {
-  if (busca.value.trim() === '') {
+  const titulo = busca.value.trim()
+
+  if (!titulo) {
     mensagemErro.value = 'Digite um título para continuar'
-  } else {
-    mensagemErro.value = ''
+    return
   }
 
-  emit('buscar', busca.value)
+  mensagemErro.value = ''
+  emit('buscar', titulo)
 }
 </script>
 
@@ -26,6 +28,7 @@ function buscar() {
       v-model="busca"
       class="inputBusca"
       placeholder="Digite um filme aqui"
+      @input="mensagemErro = ''"
       @keyup.enter="buscar"
     >
 
@@ -33,7 +36,11 @@ function buscar() {
       {{ mensagemErro }}
     </div>
 
-    <button class="botaoBusca" @click="buscar">
+    <button
+      class="botaoBusca"
+      :disabled="loading"
+      @click="buscar"
+    >
       Buscar
     </button>
 
@@ -88,7 +95,12 @@ function buscar() {
   transition: 0.2s;
 }
 
-.botaoBusca:hover {
+.botaoBusca:hover:not(:disabled) {
   transform: scale(1.03);
+}
+
+.botaoBusca:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>
